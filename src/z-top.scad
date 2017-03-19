@@ -27,7 +27,7 @@ module z_top_base(){
 
 module z_top_cuts(){
  // Vyrez pro stahnuti
- translate([3.5+4.35-0.2+1/2,8+16,layer_height]) rotate([0,0,90]) cube([10,1,10+7]); 
+// translate([3.5+4.35-0.2+1/2,8+16,layer_height]) rotate([0,0,90]) cube([10,1,10+7]); 
  
  // Seriznuti pro snazsi tisk
  translate([3.5+4.35+14.45-15+motor_offset,0,15-4]) rotate([180 - 40,0,0]) cube([30,3,8]);
@@ -61,14 +61,12 @@ module z_top_holes(){
  translate([3.5+4.35+14.45+motor_offset,-3,15]) rotate([-90,0,0]) cylinder(r = M6_dia/2, h = 10, $fn = 30);
  translate([3.5+4.35+14.45+motor_offset,-3,height-10]) rotate([-90,0,0]) cylinder(r = M6_dia/2, h = 10, $fn = 30);
  // Otvor pro hlazenou tyc 8mm
- translate([3.5+4.35-0.2,21.3+base_offset-12-0.15,-0.1]) rotate([0,0,0]) cylinder(r = rod_8mm_d/2, h = 40, $fn = 50,center=true);
+ translate([3.5+4.35-0.2,21.3+base_offset-12-0.15,-0.1]) rotate([0,0,0]) cylinder(r = rod_8mm_d/2+0.1, h = 40, $fn = 50,center=true);
 
  // Jisteni M8 tyce
- translate([-0.1,27,12/2]) rotate([0,90,0]){   
-   translate([0,0,15/2+4]) rotate([0,0,90]) cylinder(r=3.3,h=30,$fn=6); 
-   cylinder(r=1.7,h=30,$fn=16);    
-   cylinder(r=3.1, h=4,$fn=16);
- }    
+ translate([7.65,10,12/2]) rotate([0,90,90]){   
+    rotate([0,0,90]) translate([0,0,10]) cylinder(r=2.5,h=15,$fn=16);
+ }
 }
 
 // Cela soucastka

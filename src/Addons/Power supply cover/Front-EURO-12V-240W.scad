@@ -6,7 +6,7 @@
 // http://www.reprap4u.cz
 
 include <../../../configuration.scad>
-use <../../inc/text_RebeliX.scad>
+
 
 sirka = 99.4;
 vyska = 29;
@@ -70,7 +70,9 @@ module power_cuts(){
 	// Vyrez pro vypinac
 	translate([0,52,13]) rotate([0,90,0]) cube([19.2,13,10],center=true);
 	// Text RebeliX
-	translate([sirka/2,28,-0.1]) rotate([0,0,-180]) mirror([1,0,0]) text_RebeliX(3*layer_height+0.1);
+    translate([0,5,1])resize([65,65,2])surface(file="../../inc/logo.png",invert=true);
+//  use <../../inc/text_RebeliX.scad>
+//	translate([sirka/2,28,-0.1]) rotate([0,0,-180]) mirror([1,0,0]) text_RebeliX(3*layer_height+0.1);
 	// Setreni plastem
 	translate([sirka/2,0,0]) rotate([0,0,-90]) cube([30,sirka-20,10],center=true);
 	translate([sirka/2-(sirka-20)/2,15,-0.1]) rotate([0,0,-110]) cube([30,20,10]);
